@@ -68,6 +68,7 @@ export const WeatherApp = () => {
         }
         else{
             setWicon(clear_icon);
+            body.style.backgroundColor = '#F5FCCD'
         }
     }
 
