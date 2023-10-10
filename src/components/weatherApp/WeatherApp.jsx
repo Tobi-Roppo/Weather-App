@@ -13,7 +13,8 @@ import wind_icon from '../assets/wind.png'
 
 export const WeatherApp = () => {
 
-    let api_key = 'dcb1133857195533bd41d5e635060a21';
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiUrl = process.env.REACT_APP_API_URL;   
 
     const [wicon,setWicon] = useState(cloud_icon);
 
@@ -22,7 +23,7 @@ export const WeatherApp = () => {
         if(element[0].value===""){
             return 0;
         }
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&appid=${api_key}`;
+        const url = `${apiUrl}?q=${element[0].value}&appid=${apiKey}`;
          
         let response = await fetch(url);
         let data = await response.json();
